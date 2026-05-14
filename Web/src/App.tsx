@@ -15,7 +15,7 @@ function App() {
   // const [isDarkMode, setIsDarkMode] = useState(false);
 
   // This is for mobile resiveness
-  const [isMobile, setIsMobile] = useState(
+  const [isMobile, setIsMobile] = useState<boolean>(
     window.innerWidth < MOBILE_WIDTH_THRESHOLD,
   );
   useEffect(() => {
