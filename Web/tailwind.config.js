@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["worksans-semibold"],
+        sans: ["Work Sans", "sans-serif"],
       },
     },
   },
