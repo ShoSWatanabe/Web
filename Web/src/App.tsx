@@ -36,11 +36,11 @@ function App() {
       <div className="bg-gray-50">
         <Routes>
           <Route path="/" element={<Home isMobile={isMobile} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
+          <Route path="/about" element={<About isMobile={isMobile} />} />
+          <Route path="/projects" element={<Projects isMobile={isMobile} />} />
         </Routes>
       </div>
-      <FooterBar />
+      <FooterBar isMobile={isMobile} />
     </>
   );
 }

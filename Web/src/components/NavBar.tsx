@@ -13,6 +13,8 @@ function NavBar({ isMobile }: { isMobile: boolean }) {
           Sho Watanabe
         </span>
       </div>
+
+      {/* If is mobile, display the menu icon */}
       {isMobile ? (
         <div className="w-10 h-10">
           <img src={Menu} alt="Menu" />
