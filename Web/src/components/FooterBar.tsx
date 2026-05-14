@@ -2,7 +2,7 @@ import Linkedin from "../assets/linkedin.svg";
 
 function FooterBar() {
   return (
-    <div className="w-full h-[8rem] bg-gray-100  flex items-center justify-around">
+    <div className="w-full h-[8rem] bg-gray-100  flex items-center justify-between px-[min(40px,5vw)]">
       <section>
         <h3 className="font-bold pb-2">Email</h3>
         <p>sho.se.watanabe@gmail.com</p>
