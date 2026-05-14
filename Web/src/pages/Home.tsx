@@ -1,4 +1,4 @@
 function Home() {
-  return <div className="w-50 h-50 bg-red-200">Hello, Vite + React!</div>;
+  return <div className="h-[calc(100vh-5rem-8rem)]">Hello, Vite + React!</div>;
 }
 export default Home;
