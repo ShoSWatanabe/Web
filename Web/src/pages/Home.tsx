@@ -2,13 +2,14 @@ import me from "../assets/me.JPG";
 
 function Home({ isMobile }: { isMobile: boolean }) {
   const mainStyle =
-    "h-[calc(100vh-5rem-8rem)] flex items-center justify-center px-[min(40px,5vw)] gap-[min(40px,5vw)]";
-  const imgStyle = "aspect-square rounded-full overflow-hidden";
+    "h-[calc(100vh-5rem-8rem)] flex items-center justify-center px-[min(40px,5vw)] gap-[min(40px,5vw)] animate-fade-in-delay-1";
+  const imgStyle =
+    "aspect-square rounded-full overflow-hidden animate-slide-in";
   return (
     <div className={isMobile ? mainStyle + " flex-col" : mainStyle}>
       <div
         className={
-          isMobile ? imgStyle + " w-[60vw]" : imgStyle + " w-[min(50vw,500px)]"
+          isMobile ? imgStyle + " w-[70vw]" : imgStyle + " w-[min(50vw,500px)]"
         }
       >
         <img

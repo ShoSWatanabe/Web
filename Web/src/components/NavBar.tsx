@@ -14,7 +14,7 @@ function NavBar({ isMobile }: { isMobile: boolean }) {
       {/* This is the side bar nav for mobile responsiveness */}
       {showMenu && isMobile && (
         <div
-          className="w-screen h-screen fixed bg-black/50"
+          className="w-screen h-screen fixed bg-black/50 z-99"
           onClick={() => setShowMenu(false)}
         >
           <div className="h-screen right-0 bg-white absolute">
