@@ -95,7 +95,7 @@
 }
 
 .animate-slide-in-out-left {
-  animation: slideInOutFromLeft 10s ease-in-out forwards;
+  animation: slideInOutFromLeft 7.5s ease-in-out forwards;
   opacity: 0;
 }
 

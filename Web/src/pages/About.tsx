@@ -2,8 +2,8 @@ import AboutBlock from "../components/about/AboutBlock";
 
 // vip media
 import vipLogo from "../assets/vip/vipLogo.png";
-import vid1 from "../assets/vip/vid1 (1).mp4";
-import vid2 from "../assets/vip/vid2 (1).mp4";
+import vid1 from "../assets/vip/vid1.mp4";
+import vid2 from "../assets/vip/vid2.mp4";
 
 // MtrnSoc media
 import mtrnlogo from "../assets/mtrnsoc/mtrnlogo.jpg";
@@ -81,9 +81,7 @@ function About({ isMobile }: { isMobile: boolean }) {
             <li>
               Used ROS2 inside of Linux to control a robotic dog (unitree go2).
             </li>
-            <li>
-              Documented the setup guide of ROS2 using WSL on windows device
-            </li>
+            <li>Documented the setup guide of ROS2 using WSL on windows</li>
           </ul>
         </AboutBlock>
 
