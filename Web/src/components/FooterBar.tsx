@@ -1,4 +1,4 @@
-import Linkedin from "../assets/linkedin.svg";
+import Linkedin from "../assets/footer/linkedin.svg";
 
 function FooterBar({ isMobile }: { isMobile: boolean }) {
   return (

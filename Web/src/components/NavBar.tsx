@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
-import Penguin from "../assets/penguin.png";
-import Menu from "../assets/menu.svg";
+import Penguin from "../assets/nav/penguin.png";
+import Menu from "../assets/nav/menu.svg";
 import { useState } from "react";
 
 function NavBar({ isMobile }: { isMobile: boolean }) {
