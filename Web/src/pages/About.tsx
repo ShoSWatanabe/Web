@@ -1,30 +1,33 @@
-import AboutBlock from "../components/about/AboutBlock";
+import AboutBlock from "../components/HelperBlocks/AboutBlock";
 
 // vip media
-import vipLogo from "../assets/vip/vipLogo.png";
-import vid1 from "../assets/vip/vid1.mp4";
-import vid2 from "../assets/vip/vid2.mp4";
+import vipLogo from "../assets/aboutPage/vip/vipLogo.png";
+import vid1 from "../assets/aboutPage/vip/vid1.mp4";
+import vid2 from "../assets/aboutPage/vip/vid2.mp4";
 
 // MtrnSoc media
-import mtrnlogo from "../assets/mtrnsoc/mtrnlogo.jpg";
-import mtrnPic1 from "../assets/mtrnsoc/mtrnPic1.jpg";
-import mtrnPic2 from "../assets/mtrnsoc/mtrnPic2.jpg";
-import mtrnPic3 from "../assets/mtrnsoc/mtrnPic3.jpg";
-import mtrnPic4 from "../assets/mtrnsoc/mtrnPic4.JPG";
-import mtrnPic5 from "../assets/mtrnsoc/mtrnPic5.jpg";
-import mtrnPic6 from "../assets/mtrnsoc/mtrnPic6.jpg";
+import mtrnlogo from "../assets/aboutPage/mtrnsoc/mtrnlogo.jpg";
+import mtrnPic1 from "../assets/aboutPage/mtrnsoc/mtrnPic1.jpg";
+import mtrnPic2 from "../assets/aboutPage/mtrnsoc/mtrnPic2.jpg";
+import mtrnPic3 from "../assets/aboutPage/mtrnsoc/mtrnPic3.jpg";
+import mtrnPic4 from "../assets/aboutPage/mtrnsoc/mtrnPic4.JPG";
+import mtrnPic5 from "../assets/aboutPage/mtrnsoc/mtrnPic5.jpg";
+import mtrnPic6 from "../assets/aboutPage/mtrnsoc/mtrnPic6.jpg";
 
 // UNSW media
-import unswLogo from "../assets/unsw/unswlogo.png";
+import unswLogo from "../assets/aboutPage/unsw/unswlogo.png";
+
+// KHS media
+import khsLogo from "../assets/aboutPage/khs/khsLogo.png";
 
 // Ant61 media
-import antLogo from "../assets/ant61/antlogo.jpg";
-import groupIAC from "../assets/ant61/antPic1.jpg";
-import groupPhoto1 from "../assets/ant61/antPic2.jpg";
-import beaconName from "../assets/ant61/antPic3.jpg";
-import groupPhoto2 from "../assets/ant61/antPic4.jpg";
-import beacon from "../assets/ant61/antPic5.jpg";
-import beaconVib from "../assets/ant61/antPic6.jpg";
+import antLogo from "../assets/aboutPage/ant61/antlogo.jpg";
+import groupIAC from "../assets/aboutPage/ant61/antPic1.jpg";
+import groupPhoto1 from "../assets/aboutPage/ant61/antPic2.jpg";
+import beaconName from "../assets/aboutPage/ant61/antPic3.jpg";
+import groupPhoto2 from "../assets/aboutPage/ant61/antPic4.jpg";
+import beacon from "../assets/aboutPage/ant61/antPic5.jpg";
+import beaconVib from "../assets/aboutPage/ant61/antPic6.jpg";
 
 function About({ isMobile }: { isMobile: boolean }) {
   const vipVid = [vid1, vid2];
@@ -50,8 +53,82 @@ function About({ isMobile }: { isMobile: boolean }) {
   const headerStyle = "flex justify-between";
   return (
     <div className="px-[min(40px,5vw)] py-[2rem] flex flex-col items-center">
+      {/* Education section */}
+      <section className="w-[min(800px,90vw)] mb-5">
+        <h1 className="font-bold text-gray-800 text-[2rem]">Education</h1>
+        <div className="px-4 py-2">
+          <div
+            className={
+              isMobile
+                ? headerStyle + " flex-col mb-2"
+                : headerStyle + " items-center"
+            }
+          >
+            <a
+              className="flex items-center hover:bg-gray-200 px-2 py-1 rounded-[0.5rem]"
+              href="https://www.unsw.edu.au/"
+              target="_blank"
+            >
+              <img
+                src={unswLogo}
+                alt="unswLogo"
+                className="w-[30px] aspect-square rounded-[10%]"
+              />
+
+              <h2 className="text-[1.2rem] ml-2">UNSW</h2>
+            </a>
+            <h3 className="text-gray-500">2023 - Current</h3>
+          </div>
+          <ul className="list-disc px-4">
+            <li>
+              Bachelor of Engineering (Mechatronics) Bachelor of Science
+              (Computer Science)
+            </li>
+            <li>WAM: 85+ (High Distinction)</li>
+            <li>
+              <a
+                href="https://www.unsw.edu.au/engineering/student-life/prizes-awards/deans-honours-list-deans-award-recipients-archive"
+                target="_blank"
+                className="hover:underline"
+              >
+                Dean's list for 2024 & 2025
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div className="px-4 py-2">
+          <div
+            className={
+              isMobile
+                ? headerStyle + " flex-col mb-2"
+                : headerStyle + " items-center"
+            }
+          >
+            <a
+              className="flex items-center hover:bg-gray-200 px-2 py-1 rounded-[0.5rem]"
+              href="https://killara-h.schools.nsw.gov.au/"
+              target="_blank"
+            >
+              <img
+                src={khsLogo}
+                alt="khsLogo"
+                className="w-[30px] aspect-square rounded-[10%]"
+              />
+
+              <h2 className="text-[1.2rem] ml-2">Killara High School</h2>
+            </a>
+            <h3 className="text-gray-500">2017 - 2022</h3>
+          </div>
+          <ul className="list-disc px-4">
+            <li>Band 6: Math Adv, Math Ext1, Physics, Engineering Studies</li>
+            <li>First in course: Engineering Studies (2022)</li>
+            <li>ATAR: 94.80</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Experience section */}
-      <section className="w-[min(700px,90vw)]">
+      <section className="w-[min(800px,90vw)]">
         <h1 className="font-bold text-gray-800 text-[2rem]">Experience</h1>
 
         {/* vip rescue */}
@@ -178,46 +255,6 @@ function About({ isMobile }: { isMobile: boolean }) {
             </li>
           </ul>
         </AboutBlock>
-      </section>
-
-      {/* Education section */}
-      <section className="w-[min(700px,90vw)]">
-        <h1 className="font-bold text-gray-800 text-[2rem]">Education:</h1>
-        <div className="px-4 py-2">
-          <div
-            className={
-              isMobile
-                ? headerStyle + " flex-col mb-2"
-                : headerStyle + " items-center"
-            }
-          >
-            <a
-              className="flex items-center hover:bg-gray-200 px-2 py-1 rounded-[0.5rem]"
-              href="https://www.unsw.edu.au/"
-              target="_blank"
-            >
-              <img
-                src={unswLogo}
-                alt="unswLogo"
-                className="w-[30px] aspect-square rounded-[10%]"
-              />
-
-              <h2 className="text-[1.2rem] ml-2">UNSW</h2>
-            </a>
-            <h3 className="text-gray-500">2023 - Current</h3>
-          </div>
-          <ul className="list-disc px-4">
-            <li>
-              Bachelor of Engineering (Mechatronics) Bachelor of Science
-              (Computer Science)
-            </li>
-            <li>WAM: 85+ (High Distinction)</li>
-            <li>Dean's list for 2024 & 2025</li>
-          </ul>
-        </div>
-        <div>
-          <img src="" alt="" />
-        </div>
       </section>
     </div>
   );
