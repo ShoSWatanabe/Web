@@ -22,81 +22,57 @@ function AboutBlock({ children, media, isVid }: AboutBlockProp) {
     <>
       <div className="px-4 py-2  mb-10">
         {children}
-        {!isVid ? (
-          <div className="flex justify-center w-full mt-5">
-            <div
-              className="w-[min(550px,90%)] overflow-hidden flex justify-center items-center rounded-[1.5rem] relative"
-              style={{ aspectRatio: "14 / 9" }}
-            >
-              <div className="flex justify-center gap-2 absolute bottom-[7%] z-10">
-                {/* circle thingy for index */}
-                {media.map((_, index) =>
-                  index == photoIndex ? (
-                    <div
-                      key={index}
-                      className="w-[10px] aspect-square rounded-full bg-gray-200 "
-                    ></div>
-                  ) : (
-                    <div
-                      key={index}
-                      className="w-[10px] aspect-square rounded-full bg-gray-200/50 "
-                    ></div>
-                  ),
-                )}
-              </div>
-              {media.map((p, index) =>
+        <div className="flex justify-center w-full mt-5">
+          <div
+            className="w-[min(550px,90%)] overflow-hidden flex justify-center items-center rounded-[1.5rem] relative"
+            style={{ aspectRatio: "14 / 9" }}
+          >
+            <div className="flex justify-center gap-2 absolute bottom-[7%] z-10">
+              {/* circle thingy for index */}
+              {media.map((_, index) =>
                 index == photoIndex ? (
-                  <img
-                    src={p}
-                    alt={"image " + p}
+                  <div
                     key={index}
-                    className="h-full w-full object-cover animate-slide-in-out-left "
-                  />
+                    className="w-[10px] aspect-square rounded-full bg-gray-200 "
+                  ></div>
                 ) : (
-                  <div key={index}></div>
+                  <div
+                    key={index}
+                    className="w-[10px] aspect-square rounded-full bg-gray-200/50 "
+                  ></div>
                 ),
               )}
             </div>
-          </div>
-        ) : (
-          <div className="flex justify-center w-full mt-5">
-            <div
-              className="w-[min(550px,90%)] overflow-hidden flex justify-center items-center rounded-[1.5rem] relative"
-              style={{ aspectRatio: "14 / 9" }}
-            >
-              <div className="flex justify-center gap-2 absolute bottom-[7%] z-10">
-                {/* circle thingy for index */}
-                {media.map((_, index) =>
+            {/* If media is a img, then use the img tag. Else use vid tag */}
+            {!isVid
+              ? media.map((p, index) =>
                   index == photoIndex ? (
-                    <div
+                    <img
+                      src={p}
+                      alt={"image " + p}
                       key={index}
-                      className="w-[10px] aspect-square rounded-full bg-gray-200 "
-                    ></div>
+                      className="h-full w-full object-cover animate-slide-in-out-left "
+                    />
                   ) : (
-                    <div
+                    <div key={index}></div>
+                  ),
+                )
+              : media.map((p, index) =>
+                  index == photoIndex ? (
+                    <video
                       key={index}
-                      className="w-[10px] aspect-square rounded-full bg-gray-200/50 "
-                    ></div>
+                      src={p}
+                      className="h-full w-full object-cover animate-slide-in-out-left"
+                      autoPlay
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <div key={index}></div>
                   ),
                 )}
-              </div>
-              {media.map((p, index) =>
-                index == photoIndex ? (
-                  <video
-                    key={index}
-                    src={p}
-                    className="h-full w-full object-cover animate-slide-in-out-left"
-                    autoPlay
-                    muted
-                    playsInline
-                  />
-                ) : (
-                  <div key={index}></div>
-                ),
-              )}
-            </div>
           </div>
-        )}
+        </div>
       </div>
     </>
   );

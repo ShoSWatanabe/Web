@@ -24,7 +24,7 @@ function ProjectBlock({
     "flex items-center hover:bg-gray-100 rounded-t-[1rem] px-5 py-4";
   return (
     <>
-      <div className=" mb-2 border-[2px] rounded-[1rem] border-gray-200">
+      <div className="mb-2 border-[2px] rounded-[1rem] border-gray-200">
         <div
           className={show ? headerStyle : headerStyle + " rounded-b-[1rem]"}
           onClick={() => setShow((prev) => !prev)}
@@ -41,7 +41,7 @@ function ProjectBlock({
               <h3 className="text-gray-500 mb-3">{skills}</h3>
             </div>
             <div
-              className="w-55 rounded-[1rem] overflow-hidden mr-5 object-cover shadow-md"
+              className="w-55 rounded-[1rem] overflow-hidden mr-5 object-cover shadow-md flex items-center justify-center"
               style={{ aspectRatio: "16 / 9" }}
             >
               <img src={image} alt="project-image" className="" />
@@ -56,7 +56,7 @@ function ProjectBlock({
           </div>
         </div>
         {show && (
-          <div className="border-t-[2px] border-gray-200 px-4 py-2">
+          <div className="border-t-[2px] border-gray-200 px-4 py-4">
             {children}
           </div>
         )}
