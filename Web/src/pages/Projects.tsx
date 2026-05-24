@@ -148,7 +148,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           </div>
         </ProjectBlock>
 
-        {/* Coin mould */}
+        {/* Coin mold */}
         <ProjectBlock
           isMobile={isMobile}
           title="Coin mould"
@@ -196,22 +196,97 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           </div>
         </ProjectBlock>
 
+        {/* Robot simulation */}
         <ProjectBlock
           isMobile={isMobile}
           title="Wall following robot simulator"
           skills="Robot simulation & C++"
           image={wallFollowMain}
         >
-          hi
+          <h2 className={h2style}>Overview:</h2>
+          <p className={pstyle}>
+            A robot with sensors is to follow a wall without any collisions in a
+            simulation software called{" "}
+            <a
+              href="https://cyberbotics.com/"
+              className="hover:underline"
+              target="_blank"
+            >
+              Webots
+            </a>
+            .
+          </p>
+
+          <br />
+
+          <h2 className={h2style}>Robots:</h2>
+          <p className={pstyle}>Robot _ has a _ sensor</p>
+          <p className={pstyle}>Robot _ has a _ sensor</p>
+
+          <div
+            className={
+              isMobile
+                ? "flex justify-center items-center gap-6" + " flex-col"
+                : "flex justify-center items-center gap-6"
+            }
+          >
+            <img src="" alt="Robot _ sensor" />
+            <img src="" alt="Robot _ sensor" />
+          </div>
+
+          <br />
+
+          <h2 className={h2style}>Classes in C++:</h2>
+          <p className={pstyle}>
+            By using classes, despite the robot having different sensors, they
+            are able to excecute the same high level command.
+          </p>
+
+          <div
+            className={
+              isMobile
+                ? "flex justify-center items-center gap-6" + " flex-col"
+                : "flex justify-center items-center gap-6"
+            }
+          >
+            <video src="" />
+            <video src="" />
+          </div>
         </ProjectBlock>
 
+        {/* Path following car */}
         <ProjectBlock
           isMobile={isMobile}
           title="Autonomous Path following car"
           skills="Arduino"
           image={pathFollowMain}
         >
-          hi
+          <h2 className={h2style}>Overview:</h2>
+          <p className={pstyle}>
+            A autonomous car was made to follow a path drawn using 2 lines on
+            each side. The car is able to detect the lines using a lidar sensor
+            where the data is passed on to the arduino. The arduino then outputs
+            its command to the motor driver making the motors turn as desired.
+          </p>
+
+          <br />
+
+          <h2 className={h2style}>Components:</h2>
+          <p className={pstyle}>
+            <ul className="list-disc px-4">
+              <li>Wooden base - Laser cutted</li>
+              <li>
+                Wheels - 2x 3D printed at the back with rubber and 1x Free wheel
+                at the front
+              </li>
+              <li>Arduino - Brain of the car</li>
+              <li>Lidar sensor - Line detector</li>
+              <li>Motor Driver - Drives the wheels</li>
+              <li>Motor</li>
+              <li>Motor holder</li>
+              <li>Batteries</li>
+            </ul>
+          </p>
         </ProjectBlock>
       </section>
 
@@ -221,6 +296,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           Computer Science
         </h1>
 
+        {/* My website */}
         <ProjectBlock
           isMobile={isMobile}
           title="This website :)"
@@ -273,13 +349,33 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           {showReflex && <Reflex setShowReflex={setShowReflex} />}
         </ProjectBlock>
 
+        {/* Dungeon Mania */}
         <ProjectBlock
           isMobile={isMobile}
           title="Dungeon Mania"
           skills="OOP (Java)"
           image={dungeon}
         >
-          hi
+          <h2 className={h2style}>Overview:</h2>
+          <p className={pstyle}>
+            A dungeon game's backend logic was implemented using various OOP
+            priciples. This was particularly useful in this game as there were
+            many enemies, and tools which needed to be classified so that
+            instead of coding each object from scratch, new features can be
+            easily added from previous code.
+          </p>
+
+          <br />
+
+          <h2 className={h2style}>Gameplay:</h2>
+          <p className={pstyle}>
+            There are various ways to win in this game like, collecting all the
+            coins as well as losing in the game by being killed by an enemy.
+            Other features include, killing the enemy using crafted tools,
+            wearing armor and drinking potions. In the simple case below, all
+            the coins are collected and when at the exit gate, you win.
+          </p>
+          <video src=""></video>
         </ProjectBlock>
       </section>
     </div>

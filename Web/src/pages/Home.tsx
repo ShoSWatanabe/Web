@@ -1,4 +1,4 @@
-import me from "../assets/me.JPG";
+import me from "../assets/me.jpg";
 
 function Home({ isMobile }: { isMobile: boolean }) {
   const mainStyle =

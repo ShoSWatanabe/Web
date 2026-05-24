@@ -10,7 +10,7 @@ import mtrnlogo from "../assets/aboutPage/mtrnsoc/mtrnlogo.jpg";
 import mtrnPic1 from "../assets/aboutPage/mtrnsoc/mtrnPic1.jpg";
 import mtrnPic2 from "../assets/aboutPage/mtrnsoc/mtrnPic2.jpg";
 import mtrnPic3 from "../assets/aboutPage/mtrnsoc/mtrnPic3.jpg";
-import mtrnPic4 from "../assets/aboutPage/mtrnsoc/mtrnPic4.JPG";
+import mtrnPic4 from "../assets/aboutPage/mtrnsoc/mtrnPic4.jpg";
 import mtrnPic5 from "../assets/aboutPage/mtrnsoc/mtrnPic5.jpg";
 import mtrnPic6 from "../assets/aboutPage/mtrnsoc/mtrnPic6.jpg";
 
