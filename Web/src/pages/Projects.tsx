@@ -51,6 +51,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
       >
         <h1 className="font-bold text-gray-800 text-[2rem]">Mechatronics</h1>
 
+        {/* Inverted pend */}
         <ProjectBlock
           isMobile={isMobile}
           title="Inverted pendulum"
@@ -147,21 +148,52 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           </div>
         </ProjectBlock>
 
-        {/* <ProjectBlock
-          isMobile={isMobile}
-          title="Mini turret"
-          skills="CAD + Arduino"
-        >
-          hi
-        </ProjectBlock> */}
-
+        {/* Coin mould */}
         <ProjectBlock
           isMobile={isMobile}
           title="Coin mould"
           skills="CAD & Manufacturing"
           image={coinMouldMain}
         >
-          hi
+          <h2 className={h2style}>Overview:</h2>
+          <p className={pstyle}>
+            A coin is to be made by injection molding. To make such mold, 2
+            parts of the mold must come together and close shut leaving a small
+            hole at the bottom to insert the molten plastic.
+          </p>
+
+          <br />
+
+          <h2 className={h2style}>Process:</h2>
+          <p className={pstyle}>
+            The design was made in SOLIDWORKS while engravings where done in
+            fusion360. To make sure the 2 pieces combine seamlessly, CAD
+            assemblies where made to make sure no colliding parts were present.
+            The machining process was also done in fusion360, using different
+            tools for different removal purposes.
+          </p>
+
+          {/* machining simulation */}
+          <video src=""></video>
+
+          <br />
+
+          <h2 className={h2style}>Result:</h2>
+          <p className={pstyle}>
+            Finally, the CAD model was CNC machined on a piece of aluminium
+            using our machining process for the physical model. The molten
+            plastic was then inserted to the mold to make the coin.
+          </p>
+          <div
+            className={
+              isMobile
+                ? "flex justify-center items-center gap-6" + " flex-col"
+                : "flex justify-center items-center gap-6"
+            }
+          >
+            <img src="" alt="Physical mold" />
+            <img src="" alt="Injection molded coin" />
+          </div>
         </ProjectBlock>
 
         <ProjectBlock
