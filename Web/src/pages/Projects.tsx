@@ -1,3 +1,4 @@
+import { useState } from "react";
 import ProjectBlock from "../components/HelperBlocks/ProjectBlock";
 
 /////////////////// mtrn ///////////////////
@@ -21,16 +22,25 @@ import pathFollowMain from "../assets/projects/Mtrn/pathFollow/pathFollowMain.jp
 /////////////////// comp ///////////////////
 // myWeb
 import myWebMain from "../assets/projects/Comp/myWeb/myWebMain.png";
+import Snake from "../components/miniGames/snake/Snake";
+import Game2048 from "../components/miniGames/game2048/Game2048.tsx";
+import Lights from "../components/miniGames/lights/Lights.tsx";
 
 // kahoot
-import kahootMain from "../assets/projects/Comp/kahoot/kahootMain.png";
+// import kahootMain from "../assets/projects/Comp/kahoot/kahootMain.png";
 
 // dungeon
 import dungeon from "../assets/projects/Comp/Dungeon/dungeonMain.png";
+import Reflex from "../components/miniGames/reflex/Reflex.tsx";
 
 function Projects({ isMobile }: { isMobile: boolean }) {
   const h2style = "";
   const pstyle = "text-sm text-gray-700";
+
+  const [showSnake, setShowSnake] = useState<boolean>(false);
+  const [show2048, setShow2048] = useState<boolean>(false);
+  const [showLights, setShowLights] = useState<boolean>(false);
+  const [showReflex, setShowReflex] = useState<boolean>(false);
   return (
     <div className="px-[min(40px,5vw)] py-[2rem] flex flex-col items-center">
       {/* mtrn section */}
@@ -185,7 +195,50 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           skills="Frontend (ReactJS)"
           image={myWebMain}
         >
-          hi
+          <h2>Overview:</h2>
+          <p className={pstyle}>
+            This frontend was initialised using vite and coded in React +
+            Typecript (using Tailwind as a CSS framework). I made this website
+            so that I can use what I have learnt in COMP6080 (Frontend) to make
+            something useful.
+          </p>
+
+          <br />
+
+          <p className={pstyle}>
+            You can also play some mini games that I made while learning
+            frontend here:
+          </p>
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3 my-3">
+            <div
+              className="cursor-pointer bg-gray-100 flex-1 px-4 py-2 rounded-[1rem] hover:shadow-sm text-center"
+              onClick={() => setShowSnake(true)}
+            >
+              Snake
+            </div>
+            <div
+              className="cursor-pointer bg-gray-100 flex-1 px-4 py-2 rounded-[1rem] hover:shadow-sm text-center"
+              onClick={() => setShow2048(true)}
+            >
+              2048
+            </div>
+            <div
+              className="cursor-pointer bg-gray-100 flex-1 px-4 py-2 rounded-[1rem] hover:shadow-sm text-center"
+              onClick={() => setShowLights(true)}
+            >
+              Lights
+            </div>
+            <div
+              className="cursor-pointer bg-gray-100 flex-1 px-4 py-2 rounded-[1rem] hover:shadow-sm text-center"
+              onClick={() => setShowReflex(true)}
+            >
+              Reflex
+            </div>
+          </div>
+          {showSnake && <Snake setShowSnake={setShowSnake} />}
+          {show2048 && <Game2048 setShowGame={setShow2048} />}
+          {showLights && <Lights setShowLights={setShowLights} />}
+          {showReflex && <Reflex setShowReflex={setShowReflex} />}
         </ProjectBlock>
 
         <ProjectBlock
