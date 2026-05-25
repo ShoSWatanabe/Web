@@ -15,6 +15,10 @@ import coinMouldMain from "../assets/projects/Mtrn/coinMould/coinMouldMain.png";
 
 // Wall follow
 import wallFollowMain from "../assets/projects/Mtrn/wallFollow/wallFollowMain.png";
+import khperaSensor from "../assets/projects/Mtrn/wallFollow/khperaSensor.png";
+import rosbotSensor from "../assets/projects/Mtrn/wallFollow/rosbotSensor.png";
+import rosbot from "../assets/projects/Mtrn/wallFollow/rosbot.mp4";
+import khepera from "../assets/projects/Mtrn/wallFollow/khpera.mp4";
 
 // Path follow
 import pathFollowMain from "../assets/projects/Mtrn/pathFollow/pathFollowMain.jpg";
@@ -181,7 +185,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           <h2 className={h2style}>Result:</h2>
           <p className={pstyle}>
             Finally, the CAD model was CNC machined on a piece of aluminium
-            using our machining process for the physical model. The molten
+            using the same machining process for the physical model. The molten
             plastic was then inserted to the mold to make the coin.
           </p>
           <div
@@ -214,43 +218,85 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             >
               Webots
             </a>
-            .
+            . In this simulation, 2 robots are controlled using the same
+            interface with different hardware.
           </p>
 
           <br />
 
           <h2 className={h2style}>Robots:</h2>
-          <p className={pstyle}>Robot _ has a _ sensor</p>
-          <p className={pstyle}>Robot _ has a _ sensor</p>
+          <ul className="list-disc px-4">
+            <li className={pstyle}>
+              Kheprea IV is 4 wheeled and has 8 distance sensor.
+            </li>
+            <li className={pstyle}>
+              Rosbot is 2 wheeled and has a 360 degree lidar point cloud sensor.
+            </li>
+          </ul>
 
           <div
             className={
               isMobile
-                ? "flex justify-center items-center gap-6" + " flex-col"
-                : "flex justify-center items-center gap-6"
+                ? "flex justify-center items-center gap-6 mt-3" + " "
+                : "flex justify-center items-center gap-6 mt-3"
             }
           >
-            <img src="" alt="Robot _ sensor" />
-            <img src="" alt="Robot _ sensor" />
+            <div className="w-[45%]">
+              <h1>Khepera IV</h1>
+              <div
+                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <img src={khperaSensor} alt="Khpera IV sensor" />
+              </div>
+            </div>
+
+            <div className="w-[45%]">
+              <h1>Rosbot</h1>
+              <div
+                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <img src={rosbotSensor} alt="Rosbot sensor" />
+              </div>
+            </div>
           </div>
 
           <br />
 
-          <h2 className={h2style}>Classes in C++:</h2>
+          <h2 className={h2style}>Wall follow:</h2>
           <p className={pstyle}>
             By using classes, despite the robot having different sensors, they
-            are able to excecute the same high level command.
+            are able to excecute the same high level command. In this case, the
+            command is to follow the wall till you reach a goal where there are
+            3 surrounding walls and then go back to the starting point.
           </p>
 
           <div
             className={
               isMobile
-                ? "flex justify-center items-center gap-6" + " flex-col"
-                : "flex justify-center items-center gap-6"
+                ? "flex justify-center items-center gap-6 mt-3" + " flex-col"
+                : "flex justify-center items-center gap-6 mt-3"
             }
           >
-            <video src="" />
-            <video src="" />
+            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
+              <h1>Khepera IV</h1>
+              <div
+                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <video src={khepera} autoPlay controls />
+              </div>
+            </div>
+            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
+              <h1>Rosbot</h1>
+              <div
+                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <video src={rosbot} autoPlay controls />
+              </div>
+            </div>
           </div>
         </ProjectBlock>
 
