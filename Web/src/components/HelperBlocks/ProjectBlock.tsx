@@ -41,10 +41,14 @@ function ProjectBlock({
               <h3 className="text-gray-500 mb-3">{skills}</h3>
             </div>
             <div
-              className="w-55 rounded-[1rem] overflow-hidden mr-5 object-cover shadow-md flex items-center justify-center"
+              className="w-[14rem] rounded-[1rem] overflow-hidden mr-5 object-cover shadow-md flex items-center justify-center flex-none"
               style={{ aspectRatio: "16 / 9" }}
             >
-              <img src={image} alt="project-image" className="" />
+              <img
+                src={image}
+                alt="project-image"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
           <div className="w-7 aspect-square">

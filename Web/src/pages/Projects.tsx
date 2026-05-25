@@ -12,6 +12,7 @@ import pendVid from "../assets/projects/Mtrn/invPend/vid.mp4";
 
 // Coin mould
 import coinMouldMain from "../assets/projects/Mtrn/coinMould/coinMouldMain.png";
+import mouldVid from "../assets/projects/Mtrn/coinMould/MouldVid.mp4";
 
 // Wall follow
 import wallFollowMain from "../assets/projects/Mtrn/wallFollow/wallFollowMain.png";
@@ -22,6 +23,7 @@ import khepera from "../assets/projects/Mtrn/wallFollow/khpera.mp4";
 
 // Path follow
 import pathFollowMain from "../assets/projects/Mtrn/pathFollow/pathFollowMain.jpg";
+import car from "../assets/projects/Mtrn/pathFollow/car.png";
 
 /////////////////// comp ///////////////////
 // myWeb
@@ -173,12 +175,12 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             The design was made in SOLIDWORKS while engravings where done in
             fusion360. To make sure the 2 pieces combine seamlessly, CAD
             assemblies where made to make sure no colliding parts were present.
-            The machining process was also done in fusion360, using different
-            tools for different removal purposes.
+            The machining process was also done in fusion360 as shown below,
+            using different tools for different removal purposes.
           </p>
 
           {/* machining simulation */}
-          <video src=""></video>
+          <video src={mouldVid} controls />
 
           <br />
 
@@ -317,9 +319,21 @@ function Projects({ isMobile }: { isMobile: boolean }) {
 
           <br />
 
-          <h2 className={h2style}>Components:</h2>
-          <p className={pstyle}>
-            <ul className="list-disc px-4">
+          <h2>Components:</h2>
+          <div
+            className={
+              isMobile
+                ? "flex justify-between w-full px-3 flex-col items-center"
+                : "flex justify-between w-full px-3"
+            }
+          >
+            <ul
+              className={
+                pstyle +
+                " list-disc px-4 block " +
+                (isMobile ? " w-[100%] mb-3" : " w-[60%]")
+              }
+            >
               <li>Wooden base - Laser cutted</li>
               <li>
                 Wheels - 2x 3D printed at the back with rubber and 1x Free wheel
@@ -332,7 +346,16 @@ function Projects({ isMobile }: { isMobile: boolean }) {
               <li>Motor holder</li>
               <li>Batteries</li>
             </ul>
-          </p>
+            <div
+              className={
+                isMobile
+                  ? "overflow-hidden rounded-[1rem] mr-5 w-[70%]"
+                  : "overflow-hidden rounded-[1rem] mr-5 w-[30%]"
+              }
+            >
+              <img src={car} alt="car" />
+            </div>
+          </div>
         </ProjectBlock>
       </section>
 
