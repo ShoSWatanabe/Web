@@ -31,22 +31,44 @@ import myWebMain from "../assets/projects/Comp/myWeb/myWebMain.png";
 import Snake from "../components/miniGames/snake/Snake";
 import Game2048 from "../components/miniGames/game2048/Game2048.tsx";
 import Lights from "../components/miniGames/lights/Lights.tsx";
+import Reflex from "../components/miniGames/reflex/Reflex.tsx";
 
 // kahoot
 // import kahootMain from "../assets/projects/Comp/kahoot/kahootMain.png";
 
 // dungeon
 import dungeon from "../assets/projects/Comp/Dungeon/dungeonMain.png";
-import Reflex from "../components/miniGames/reflex/Reflex.tsx";
+import simpleDungeon from "../assets/projects/Comp/Dungeon/simpleDungeon.mp4";
+import doorDungeon from "../assets/projects/Comp/Dungeon/doorDungeon.mp4";
+import advancedDungeon from "../assets/projects/Comp/Dungeon/advancedDungeon.mp4";
+import orderDungeon from "../assets/projects/Comp/Dungeon/orderDungeon.mp4";
+import boulderDungeon from "../assets/projects/Comp/Dungeon/boulderDungeon.mp4";
+import left from "../assets/projects/left.svg";
+import right from "../assets/projects/right.svg";
 
 function Projects({ isMobile }: { isMobile: boolean }) {
   const h2style = "";
   const pstyle = "text-sm text-gray-700";
 
+  // myWeb minigames
   const [showSnake, setShowSnake] = useState<boolean>(false);
   const [show2048, setShow2048] = useState<boolean>(false);
   const [showLights, setShowLights] = useState<boolean>(false);
   const [showReflex, setShowReflex] = useState<boolean>(false);
+
+  // dungeon game
+  const dungeonExamples = [
+    ["Simple exit to win", simpleDungeon],
+    ["Push boulders on plate to win", boulderDungeon],
+    ["Combination goal: Push boulder to plate then exit", orderDungeon],
+    [
+      "Kill following enemy with crafted tools and collect coin for goal",
+      advancedDungeon,
+    ],
+    ["Keys to unlock doors", doorDungeon],
+  ];
+  const [dungeonIndex, setDungeonIndex] = useState<number>(0);
+
   return (
     <div className="px-[min(40px,5vw)] py-[2rem] flex flex-col items-center">
       {/* mtrn section */}
@@ -118,20 +140,20 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             <em>T</em>.
           </p>
 
-          <p className={pstyle + " mt-1"}>
+          <div className={pstyle + " mt-1"}>
             Using MATLAB's{" "}
             <code className="bg-gray-100 px-1 rounded">place</code> function on
             the discrete-time system matrices, the resulting gain vector{" "}
             <strong>K</strong> can be found: <br />
-            <div className="flex justify-center">
+            <p className="flex justify-center">
               <code className="my-2">
                 [Ad, Bd, Cd, Dd] = c2dm(A, B, C, D, T, 'zoh'); <br />
                 poles = [p1, p2, p3, p4]; <br />
                 z_poles = exp(poles * T); <br />
                 K = place(Ad, Bd, z_poles); <br />
               </code>
-            </div>
-          </p>
+            </p>
+          </div>
           <br />
 
           <h2 className={h2style}>Result:</h2>
@@ -180,7 +202,9 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           </p>
 
           {/* machining simulation */}
-          <video src={mouldVid} controls />
+          <div className="rounded-[1rem] overflow-hidden">
+            <video src={mouldVid} autoPlay loop muted />
+          </div>
 
           <br />
 
@@ -316,9 +340,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             where the data is passed on to the arduino. The arduino then outputs
             its command to the motor driver making the motors turn as desired.
           </p>
-
           <br />
-
           <h2>Components:</h2>
           <div
             className={
@@ -356,6 +378,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
               <img src={car} alt="car" />
             </div>
           </div>
+          <p className={pstyle}>Couldn't find any videos :(</p>
         </ProjectBlock>
       </section>
 
@@ -441,10 +464,75 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             There are various ways to win in this game like, collecting all the
             coins as well as losing in the game by being killed by an enemy.
             Other features include, killing the enemy using crafted tools,
-            wearing armor and drinking potions. In the simple case below, all
-            the coins are collected and when at the exit gate, you win.
+            drinking potions and pushing boulders around.
           </p>
-          <video src=""></video>
+
+          <br />
+          <h2 className={h2style}>Examples:</h2>
+
+          {/* dungeon example video */}
+          {dungeonExamples.map((data, index) => (
+            <div>
+              {index == dungeonIndex && (
+                <div>
+                  <p className={pstyle}>{data[0]}</p>
+                  <div
+                    className="flex justify-center items-center overflow-hidden rounded-[1rem]"
+                    style={{ aspectRatio: 14 / 11 }}
+                  >
+                    <video src={data[1]} controls />
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Bottom control section */}
+          <div className="flex justify-between w-full py-2 px-4">
+            <div
+              onClick={() =>
+                setDungeonIndex((prev) => {
+                  let i = (prev - 1) % dungeonExamples.length;
+                  if (i < 0) i = dungeonExamples.length - 1;
+                  return i;
+                })
+              }
+              className="cursor-pointer flex items-center hover:bg-gray-200 px-2 py-1 rounded-[1rem]"
+            >
+              <div className="h-5 w-5">
+                <img src={left} alt="PrevIcon" />
+              </div>
+              <p className={pstyle}>Prev</p>
+            </div>
+            <div className="flex justify-center items-center gap-2">
+              {dungeonExamples.map((_, index) => (
+                <>
+                  {index == dungeonIndex ? (
+                    <div
+                      key={index}
+                      className="w-[10px] h-[10px] rounded-full bg-gray-400 "
+                    ></div>
+                  ) : (
+                    <div
+                      key={index}
+                      className="w-[10px] h-[10px] rounded-full bg-gray-300 "
+                    ></div>
+                  )}
+                </>
+              ))}
+            </div>
+            <div
+              onClick={() =>
+                setDungeonIndex((prev) => (prev + 1) % dungeonExamples.length)
+              }
+              className="cursor-pointer flex items-center hover:bg-gray-200 px-2 py-1 rounded-[1rem]"
+            >
+              <p className={pstyle}>Next</p>
+              <div className="h-5 w-5">
+                <img src={right} alt="NextIcon" />
+              </div>
+            </div>
+          </div>
         </ProjectBlock>
       </section>
     </div>
