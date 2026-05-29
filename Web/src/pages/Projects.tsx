@@ -400,7 +400,15 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             This frontend was initialised using vite and coded in React +
             Typecript (using Tailwind as a CSS framework). I made this website
             so that I can use what I have learnt in COMP6080 (Frontend) to make
-            something useful.
+            something useful. You can check out the github{" "}
+            <a
+              href="https://github.com/ShoSWatanabe/Web/tree/main"
+              className="underline"
+              target="_blank"
+            >
+              here
+            </a>
+            .
           </p>
 
           <br />
