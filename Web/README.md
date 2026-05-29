@@ -1,7 +1,9 @@
 # Setup command:
 
+```
 npm i
 npm run dev
+```
 
 # src folder structure
 
