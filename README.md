@@ -1,3 +1,3 @@
 # Web
 
-Hello and welcome to my personal website!
+Hello and welcome to my personal website :) !
