@@ -403,7 +403,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
             something useful. You can check out the github{" "}
             <a
               href="https://github.com/ShoSWatanabe/Web/tree/main"
-              className="underline"
+              className="underline hover:text-gray-400"
               target="_blank"
             >
               here
