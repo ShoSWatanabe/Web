@@ -3,13 +3,13 @@ import React, { useEffect, useState } from "react";
 type AboutBlockProp = {
   children: React.ReactNode;
   media: string[];
-  isVid: boolean;
+  isVid: boolean[];
 };
 
 function AboutBlock({ children, media, isVid }: AboutBlockProp) {
   // Store the index of the media to cycle between them
   const TIME_INTERVAL = 7000;
-  const [photoIndex, setPhotoIndex] = useState<number>(1);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
   useEffect(() => {
     const id = setInterval(() => {
       setPhotoIndex((prev) => (prev + 1) % media.length);
@@ -44,7 +44,7 @@ function AboutBlock({ children, media, isVid }: AboutBlockProp) {
               )}
             </div>
             {/* If media is a img, then use the img tag. Else use vid tag */}
-            {!isVid
+            {!isVid[photoIndex]
               ? media.map((p, index) =>
                   index == photoIndex ? (
                     <img

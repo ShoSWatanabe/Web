@@ -4,6 +4,8 @@ import AboutBlock from "../components/HelperBlocks/AboutBlock";
 import vipLogo from "../assets/aboutPage/vip/vipLogo.png";
 import vid1 from "../assets/aboutPage/vip/vid1.mp4";
 import vid2 from "../assets/aboutPage/vip/vid2.mp4";
+import vid3 from "../assets/aboutPage/vip/VIPRobotArm.mp4";
+import vipImg1 from "../assets/aboutPage/vip/vipTeamImg.jpg";
 
 // MtrnSoc media
 import mtrnlogo from "../assets/aboutPage/mtrnsoc/mtrnlogo.jpg";
@@ -30,7 +32,8 @@ import beacon from "../assets/aboutPage/ant61/antPic5.jpg";
 import beaconVib from "../assets/aboutPage/ant61/antPic6.jpg";
 
 function About({ isMobile }: { isMobile: boolean }) {
-  const vipVid = [vid1, vid2];
+  const vipVid = [vid1, vid2, vid3, vipImg1];
+  const vipIsVid = [true, true, true, false];
 
   const ant61Photos = [
     groupPhoto1,
@@ -40,6 +43,7 @@ function About({ isMobile }: { isMobile: boolean }) {
     groupPhoto2,
     beaconName,
   ];
+  const ant61IsVid = [false, false, false, false, false, false];
 
   const mtrnsocPhotos = [
     mtrnPic1,
@@ -49,6 +53,7 @@ function About({ isMobile }: { isMobile: boolean }) {
     mtrnPic5,
     mtrnPic6,
   ];
+  const mtrnsocIsVid = [false, false, false, false, false, false];
 
   const headerStyle = "flex justify-between";
   return (
@@ -132,7 +137,7 @@ function About({ isMobile }: { isMobile: boolean }) {
         <h1 className="font-bold text-gray-800 text-[2rem]">Experience</h1>
 
         {/* vip rescue */}
-        <AboutBlock media={vipVid} isVid={true}>
+        <AboutBlock media={vipVid} isVid={vipIsVid}>
           <div
             className={
               isMobile
@@ -156,14 +161,18 @@ function About({ isMobile }: { isMobile: boolean }) {
           </div>
           <ul className="list-disc px-4">
             <li>
-              Used ROS2 inside of Linux to control a robotic dog (unitree go2).
+              Used ROS2 inside of Linux to control a robotic dog, Unitree go2.
             </li>
-            <li>Documented the setup guide of ROS2 using WSL on windows</li>
+            <li>Documented the setup guide of ROS2 using WSL on windows.</li>
+            <li>
+              Worked with the Unitree D1 Arm, applying forward and inverse
+              kinematics.
+            </li>
           </ul>
         </AboutBlock>
 
         {/* ant61 */}
-        <AboutBlock media={ant61Photos} isVid={false}>
+        <AboutBlock media={ant61Photos} isVid={ant61IsVid}>
           <div
             className={
               isMobile
@@ -208,7 +217,7 @@ function About({ isMobile }: { isMobile: boolean }) {
         </AboutBlock>
 
         {/* mtrnsoc */}
-        <AboutBlock media={mtrnsocPhotos} isVid={false}>
+        <AboutBlock media={mtrnsocPhotos} isVid={mtrnsocIsVid}>
           <div
             className={
               isMobile
