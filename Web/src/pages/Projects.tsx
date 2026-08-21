@@ -12,6 +12,8 @@ import pendVid from "../assets/projects/Mtrn/invPend/vid.mp4";
 
 // Coin mould
 import coinMouldMain from "../assets/projects/Mtrn/coinMould/coinMouldMain.png";
+import mouldImg1 from "../assets/projects/Mtrn/coinMould/mouldImg1.jpg";
+import mouldImg2 from "../assets/projects/Mtrn/coinMould/mouldImg2.jpg";
 import mouldVid from "../assets/projects/Mtrn/coinMould/MouldVid.mp4";
 
 // Wall follow
@@ -209,7 +211,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           <br />
 
           <h2 className={h2style}>Result:</h2>
-          <p className={pstyle}>
+          <p className={pstyle + " mb-[1rem]"}>
             Finally, the CAD model was CNC machined on a piece of aluminium
             using the same machining process for the physical model. The molten
             plastic was then inserted to the mold to make the coin.
@@ -217,12 +219,23 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           <div
             className={
               isMobile
-                ? "flex justify-center items-center gap-6" + " flex-col"
-                : "flex justify-center items-center gap-6"
+                ? "flex justify-center gap-6" + " flex-col"
+                : "flex justify-center gap-6"
             }
           >
-            <img src="" alt="Physical mold" />
-            <img src="" alt="Injection molded coin" />
+            <div className="flex flex-col items-center">
+              <div className="rounded-[1rem] overflow-hidden">
+                <img src={mouldImg1} alt="Physical mold" />
+              </div>
+              <p>CNCed Physical mold</p>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="rounded-[1rem] overflow-hidden">
+                <img src={mouldImg2} alt="Injection molded coin" />
+              </div>
+              <p>Injection molded coin (was mirrored😭)</p>
+            </div>
           </div>
         </ProjectBlock>
 
