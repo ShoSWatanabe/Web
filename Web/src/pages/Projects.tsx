@@ -2,6 +2,13 @@ import { useState } from "react";
 import ProjectBlock from "../components/HelperBlocks/ProjectBlock";
 
 /////////////////// mtrn ///////////////////
+// UR5e arm
+import ur5eVid from "../assets/projects/Mtrn/ur5e/ur5e.mp4";
+import ur5eMain from "../assets/projects/Mtrn/ur5e/ur5e.png";
+import ur5eSim from "../assets/projects/Mtrn/ur5e/sim.png";
+import camToWarped from "../assets/projects/Mtrn/ur5e/camToWarped.png";
+import aptAndPath from "../assets/projects/Mtrn/ur5e/aptAndPath.png";
+
 // Inv Pend
 import invPendMain from "../assets/projects/Mtrn/invPend/invPendMain.jpg";
 import model from "../assets/projects/Mtrn/invPend/model.png";
@@ -16,13 +23,6 @@ import mouldImg1 from "../assets/projects/Mtrn/coinMould/mouldImg1.jpg";
 import mouldImg2 from "../assets/projects/Mtrn/coinMould/mouldImg2.jpg";
 import mouldVid from "../assets/projects/Mtrn/coinMould/MouldVid.mp4";
 
-// Wall follow
-import wallFollowMain from "../assets/projects/Mtrn/wallFollow/wallFollowMain.png";
-import khperaSensor from "../assets/projects/Mtrn/wallFollow/khperaSensor.png";
-import rosbotSensor from "../assets/projects/Mtrn/wallFollow/rosbotSensor.png";
-import rosbot from "../assets/projects/Mtrn/wallFollow/rosbot.mp4";
-import khepera from "../assets/projects/Mtrn/wallFollow/khpera.mp4";
-
 // Path follow
 import pathFollowMain from "../assets/projects/Mtrn/pathFollow/pathFollowMain.jpg";
 import car from "../assets/projects/Mtrn/pathFollow/car.png";
@@ -35,8 +35,12 @@ import Game2048 from "../components/miniGames/game2048/Game2048.tsx";
 import Lights from "../components/miniGames/lights/Lights.tsx";
 import Reflex from "../components/miniGames/reflex/Reflex.tsx";
 
-// kahoot
-// import kahootMain from "../assets/projects/Comp/kahoot/kahootMain.png";
+// Wall follow
+import wallFollowMain from "../assets/projects/Mtrn/wallFollow/wallFollowMain.png";
+import khperaSensor from "../assets/projects/Mtrn/wallFollow/khperaSensor.png";
+import rosbotSensor from "../assets/projects/Mtrn/wallFollow/rosbotSensor.png";
+import rosbot from "../assets/projects/Mtrn/wallFollow/rosbot.mp4";
+import khepera from "../assets/projects/Mtrn/wallFollow/khpera.mp4";
 
 // dungeon
 import dungeon from "../assets/projects/Comp/Dungeon/dungeonMain.png";
@@ -80,6 +84,93 @@ function Projects({ isMobile }: { isMobile: boolean }) {
         }
       >
         <h1 className="font-bold text-gray-800 text-[2rem]">Mechatronics</h1>
+
+        {/* UR5e arm controller */}
+        <ProjectBlock
+          isMobile={isMobile}
+          title="UR5e arm controller"
+          skills="MATLAB & Coordinate frames"
+          image={ur5eMain}
+        >
+          <div>
+            <h2 className={h2style}>Overview:</h2>
+            <p className={pstyle + " py-2"}>
+              By learning the basics of coordinate frames and transformations, I
+              was able to control the UR5e arm to do several tasks such as
+              detecting and moving Aruco markers. Apart from this, I also learnt
+              about DH conventions, forward and inverse kinematics, jacobian
+              matrices and singularities. Most of the testings were done in a
+              simulation as shown below.
+            </p>
+            <div className="overflow-hidden rounded-[1rem] mx-[5%]">
+              <img src={ur5eSim} alt="UR5e sim picture" />
+            </div>
+          </div>
+
+          <br />
+
+          {/* <h2 className={h2style}>Writing out letters:</h2>
+          <p className={pstyle}>
+            Using the RVC toolbox in MATLAB, the arm was able to write out
+            letters, words and mathematical symbols. When writing out these
+            texts, coordinate offsets and angle offsets were able to be changed.
+          </p>
+
+          <br /> */}
+
+          <h2 className={h2style}>Detecting and moving Aruco markers</h2>
+          <p className={pstyle}>
+            Using the camera data from above, the arm was controlled so that it
+            would pick and place the relevant Aruco markers to the desired
+            destination with the correct orientation whilst avoiding obstacles.
+            <br />
+            <br />
+            In this case of moving the rectangular marker, this was done in 5
+            major steps:
+            <ol className="list-decimal list-outside pl-5">
+              <li>
+                Convert camera image and apply perspective transformation to get
+                a top down view of the table using the 4 Aruco markers.
+              </li>
+              <div className="flex justify-center my-2 pr-5">
+                <div className="overflow-hidden rounded-[1rem]">
+                  <img src={camToWarped} alt="Camera to top down image" />
+                </div>
+              </div>
+              <li>
+                Mark and identify all the Aruco markers as either the object to
+                carry, obstacle or goal.
+              </li>
+              <li>
+                Calculate the Artificial Potential (APF) Field so that it gets
+                attracted to the goal and repelled when near an obstacle.
+              </li>
+              <li>
+                Using the APF, the final trajectory is made where the
+                orientation of the picked up marker is rotated to be parallel to
+                the potential field vector to avoid the obstacles.
+              </li>
+              <div className="flex justify-center my-2 pr-5">
+                <div className="overflow-hidden rounded-[1rem]">
+                  <img src={aptAndPath} alt="APF + Final path" />
+                </div>
+              </div>
+              <li>
+                The final path was then sent to the UR5e to peform the movement
+                where the vacuum gripper were also activated and deactivated at
+                the start and end points.
+              </li>
+              <br />
+              <div className="pr-5">
+                <div className="flex items-center justify-center overflow-hidden rounded-[1rem]">
+                  <video src={ur5eVid} controls />
+                </div>
+              </div>
+            </ol>
+          </p>
+
+          <br />
+        </ProjectBlock>
 
         {/* Inverted pend */}
         <ProjectBlock
@@ -158,8 +249,6 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           </div>
           <br />
 
-          <h2 className={h2style}>Result:</h2>
-
           <div
             className={
               isMobile
@@ -168,17 +257,18 @@ function Projects({ isMobile }: { isMobile: boolean }) {
                 : "flex justify-between w-full gap-2"
             }
           >
-            <div className="flex items-center justify-center">
+            <div className="flex items-center flex-col">
+              <h2 className={pstyle}>Result:</h2>
               <video src={pendVid} controls style={{ aspectRatio: "15 / 9" }} />
             </div>
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-center flex-col">
               <h2 className={pstyle}>Resulting graph:</h2>
               <img src={graph} alt="graph" />
             </div>
           </div>
         </ProjectBlock>
 
-        {/* Coin mold */}
+        {/* Coin mould */}
         <ProjectBlock
           isMobile={isMobile}
           title="Coin mould"
@@ -187,8 +277,8 @@ function Projects({ isMobile }: { isMobile: boolean }) {
         >
           <h2 className={h2style}>Overview:</h2>
           <p className={pstyle}>
-            A coin is to be made by injection molding. To make such mold, 2
-            parts of the mold must come together and close shut leaving a small
+            A coin is to be made by injection moulding. To make such mould, 2
+            parts of the mould must come together and close shut leaving a small
             hole at the bottom to insert the molten plastic.
           </p>
 
@@ -214,7 +304,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           <p className={pstyle + " mb-[1rem]"}>
             Finally, the CAD model was CNC machined on a piece of aluminium
             using the same machining process for the physical model. The molten
-            plastic was then inserted to the mold to make the coin.
+            plastic was then inserted to the mould to make the coin.
           </p>
           <div
             className={
@@ -225,116 +315,16 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           >
             <div className="flex flex-col items-center">
               <div className="rounded-[1rem] overflow-hidden">
-                <img src={mouldImg1} alt="Physical mold" />
+                <img src={mouldImg1} alt="Physical mould" />
               </div>
-              <p>CNCed Physical mold</p>
+              <p>CNCed Physical mould</p>
             </div>
 
             <div className="flex flex-col items-center">
               <div className="rounded-[1rem] overflow-hidden">
-                <img src={mouldImg2} alt="Injection molded coin" />
+                <img src={mouldImg2} alt="Injection moulded coin" />
               </div>
-              <p>Injection molded coin (was mirrored😭)</p>
-            </div>
-          </div>
-        </ProjectBlock>
-
-        {/* Robot simulation */}
-        <ProjectBlock
-          isMobile={isMobile}
-          title="Wall following robot simulator"
-          skills="Robot simulation & C++"
-          image={wallFollowMain}
-        >
-          <h2 className={h2style}>Overview:</h2>
-          <p className={pstyle}>
-            A robot with sensors is to follow a wall without any collisions in a
-            simulation software called{" "}
-            <a
-              href="https://cyberbotics.com/"
-              className="hover:underline"
-              target="_blank"
-            >
-              Webots
-            </a>
-            . In this simulation, 2 robots are controlled using the same
-            interface with different hardware.
-          </p>
-
-          <br />
-
-          <h2 className={h2style}>Robots:</h2>
-          <ul className="list-disc px-4">
-            <li className={pstyle}>
-              Kheprea IV is 4 wheeled and has 8 distance sensor.
-            </li>
-            <li className={pstyle}>
-              Rosbot is 2 wheeled and has a 360 degree lidar point cloud sensor.
-            </li>
-          </ul>
-
-          <div
-            className={
-              isMobile
-                ? "flex justify-center items-center gap-6 mt-3" + " "
-                : "flex justify-center items-center gap-6 mt-3"
-            }
-          >
-            <div className="w-[45%]">
-              <h1>Khepera IV</h1>
-              <div
-                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
-                style={{ aspectRatio: 16 / 9 }}
-              >
-                <img src={khperaSensor} alt="Khpera IV sensor" />
-              </div>
-            </div>
-
-            <div className="w-[45%]">
-              <h1>Rosbot</h1>
-              <div
-                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
-                style={{ aspectRatio: 16 / 9 }}
-              >
-                <img src={rosbotSensor} alt="Rosbot sensor" />
-              </div>
-            </div>
-          </div>
-
-          <br />
-
-          <h2 className={h2style}>Wall follow:</h2>
-          <p className={pstyle}>
-            By using classes, despite the robot having different sensors, they
-            are able to excecute the same high level command. In this case, the
-            command is to follow the wall till you reach a goal where there are
-            3 surrounding walls and then go back to the starting point.
-          </p>
-
-          <div
-            className={
-              isMobile
-                ? "flex justify-center items-center gap-6 mt-3" + " flex-col"
-                : "flex justify-center items-center gap-6 mt-3"
-            }
-          >
-            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
-              <h1>Khepera IV</h1>
-              <div
-                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
-                style={{ aspectRatio: 16 / 9 }}
-              >
-                <video src={khepera} autoPlay controls />
-              </div>
-            </div>
-            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
-              <h1>Rosbot</h1>
-              <div
-                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
-                style={{ aspectRatio: 16 / 9 }}
-              >
-                <video src={rosbot} autoPlay controls />
-              </div>
+              <p>Injection moulded coin (was mirrored😭)</p>
             </div>
           </div>
         </ProjectBlock>
@@ -462,11 +452,111 @@ function Projects({ isMobile }: { isMobile: boolean }) {
           {showReflex && <Reflex setShowReflex={setShowReflex} />}
         </ProjectBlock>
 
+        {/* Robot simulation */}
+        <ProjectBlock
+          isMobile={isMobile}
+          title="Wall following robot simulator"
+          skills="Robot simulation & C++"
+          image={wallFollowMain}
+        >
+          <h2 className={h2style}>Overview:</h2>
+          <p className={pstyle}>
+            A robot with sensors is to follow a wall without any collisions in a
+            simulation software called{" "}
+            <a
+              href="https://cyberbotics.com/"
+              className="hover:underline"
+              target="_blank"
+            >
+              Webots
+            </a>
+            . In this simulation, 2 robots are controlled using the same
+            interface with different hardware.
+          </p>
+
+          <br />
+
+          <h2 className={h2style}>Robots:</h2>
+          <ul className="list-disc px-4">
+            <li className={pstyle}>
+              Kheprea IV is 4 wheeled and has 8 distance sensor.
+            </li>
+            <li className={pstyle}>
+              Rosbot is 2 wheeled and has a 360 degree lidar point cloud sensor.
+            </li>
+          </ul>
+
+          <div
+            className={
+              isMobile
+                ? "flex justify-center items-center gap-6 mt-3" + " "
+                : "flex justify-center items-center gap-6 mt-3"
+            }
+          >
+            <div className="w-[45%]">
+              <h1>Khepera IV</h1>
+              <div
+                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <img src={khperaSensor} alt="Khpera IV sensor" />
+              </div>
+            </div>
+
+            <div className="w-[45%]">
+              <h1>Rosbot</h1>
+              <div
+                className="flex justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <img src={rosbotSensor} alt="Rosbot sensor" />
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <h2 className={h2style}>Wall follow:</h2>
+          <p className={pstyle}>
+            By using classes, despite the robot having different sensors, they
+            are able to excecute the same high level command. In this case, the
+            command is to follow the wall till you reach a goal where there are
+            3 surrounding walls and then go back to the starting point.
+          </p>
+
+          <div
+            className={
+              isMobile
+                ? "flex justify-center items-center gap-6 mt-3" + " flex-col"
+                : "flex justify-center items-center gap-6 mt-3"
+            }
+          >
+            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
+              <h1>Khepera IV</h1>
+              <div
+                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <video src={khepera} autoPlay controls />
+              </div>
+            </div>
+            <div className={isMobile ? "w-[90%]" : "w-[45%]"}>
+              <h1>Rosbot</h1>
+              <div
+                className="flex flex-col justify-center items-center overflow-hidden rounded-[1rem]"
+                style={{ aspectRatio: 16 / 9 }}
+              >
+                <video src={rosbot} autoPlay controls />
+              </div>
+            </div>
+          </div>
+        </ProjectBlock>
+
         {/* Dungeon Mania */}
         <ProjectBlock
           isMobile={isMobile}
           title="Dungeon Mania"
-          skills="OOP (Java)"
+          skills="OOP & Java"
           image={dungeon}
         >
           <h2 className={h2style}>Overview:</h2>
