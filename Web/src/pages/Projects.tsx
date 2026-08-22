@@ -89,7 +89,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
         <ProjectBlock
           isMobile={isMobile}
           title="UR5e arm controller"
-          skills="MATLAB & Coordinate frames"
+          skills="Robotics & MATLAB"
           image={ur5eMain}
         >
           <div>
