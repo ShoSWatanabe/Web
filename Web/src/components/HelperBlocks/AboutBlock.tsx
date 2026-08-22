@@ -18,6 +18,10 @@ function AboutBlock({ children, media, isVid }: AboutBlockProp) {
     return () => clearInterval(id);
   }, []);
 
+  const clickIndex = (index: number) => {
+    setPhotoIndex(index);
+  };
+
   return (
     <>
       <div className="px-4 py-2  mb-10">
@@ -38,7 +42,8 @@ function AboutBlock({ children, media, isVid }: AboutBlockProp) {
                 ) : (
                   <div
                     key={index}
-                    className="w-[10px] aspect-square rounded-full bg-gray-200/50 "
+                    className="w-[10px] aspect-square rounded-full bg-gray-200/50 cursor-pointer "
+                    onClick={() => clickIndex(index)}
                   ></div>
                 ),
               )}

@@ -21,7 +21,7 @@ function ProjectBlock({
   const [show, setShow] = useState<boolean>(false);
 
   const headerStyle =
-    "flex items-center hover:bg-gray-100 rounded-t-[1rem] px-5 py-4";
+    "flex items-center hover:bg-gray-100 rounded-t-[1rem] px-5 py-4 cursor-pointer";
   return (
     <>
       <div className="mb-2 border-[2px] rounded-[1rem] border-gray-200">
