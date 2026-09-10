@@ -2,6 +2,8 @@ import Ur5e from "./projects/mtrn/Ur5e";
 import InvertedPendulum from "./projects/mtrn/InvertedPendulum";
 import CoinMould from "./projects/mtrn/CoinMould";
 import PathFollowingCar from "./projects/mtrn/PathFollowingCar";
+import CurtainOpener from "./projects/mtrn/CurtainOpener";
+
 import MyWebsite from "./projects/comp/MyWebsite";
 import WallFollowingRobot from "./projects/comp/WallFollowingRobot";
 import DungeonMania from "./projects/comp/DungeonMania";
@@ -15,6 +17,7 @@ function Projects({ isMobile }: { isMobile: boolean }) {
         }
       >
         <h1 className="font-bold text-gray-800 text-[2rem]">Mechatronics</h1>
+        <CurtainOpener isMobile={isMobile} />
         <Ur5e isMobile={isMobile} />
         <InvertedPendulum isMobile={isMobile} />
         <CoinMould isMobile={isMobile} />
