@@ -18,6 +18,7 @@ function AboutBlock({ children, media, isVid }: AboutBlockProp) {
     return () => clearInterval(id);
   }, []);
 
+  // Updates the media to the clicked index
   const clickIndex = (index: number) => {
     setPhotoIndex(index);
   };
