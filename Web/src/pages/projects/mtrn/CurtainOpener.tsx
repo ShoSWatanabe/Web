@@ -4,6 +4,7 @@ import CurtainTop from "../../../assets/projects/Mtrn/curtainOpener/CurtainOpene
 import web from "../../../assets/projects/Mtrn/curtainOpener/web.png";
 import cad1 from "../../../assets/projects/Mtrn/curtainOpener/cad1.png";
 import cad2 from "../../../assets/projects/Mtrn/curtainOpener/cad2.png";
+import demo from "../../../assets/projects/Mtrn/curtainOpener/demo.mp4";
 
 function CurtainOpener({ isMobile }: { isMobile: boolean }) {
   return (
@@ -16,10 +17,10 @@ function CurtainOpener({ isMobile }: { isMobile: boolean }) {
       <h2>Overview:</h2>
       <p className="text-sm text-gray-700 py-2">
         Me who finds it hard to wake up early (yea...), thought making an
-        automatic curtain opener would help me out. Having an ESP32 lying
-        around, I thought of using a combination of 3D printed elements with my
-        LEGO bricks to make the overall shape where the motor I used was the
-        SG90-360-degree servo.
+        automatic curtain opener would help me out (for half of the curtain).
+        Having an ESP32 lying around, I thought of using a combination of 3D
+        printed elements with my LEGO bricks to make the overall shape where the
+        motor I used was the SG90-360-degree servo.
       </p>
 
       <h2>CAD:</h2>
@@ -112,6 +113,9 @@ function CurtainOpener({ isMobile }: { isMobile: boolean }) {
       <br />
 
       <h2>Video demo:</h2>
+      <div className="rounded-[1rem] overflow-hidden">
+        <video src={demo} controls />
+      </div>
     </ProjectBlock>
   );
 }
